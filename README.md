@@ -5,7 +5,7 @@ Simple decoder and encoder made with C++
 - **Binary:** Decode 8-bit binary strings (ignores spaces).
 - **Hex:** Handle standard hex strings.
 - **Base64:** Standard implementation for encoding/decoding.
-- **URL:** Percent-encoding for web challenges.
+- **URL:** Percent-encoding for web.
 
 ## Compile
 You need a C++ compiler (g++).
