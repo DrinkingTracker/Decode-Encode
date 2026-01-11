@@ -1,4 +1,4 @@
-# Universal CTF Decoder/Encoder
+# Universal Decoder/Encoder
 Simple decoder and encoder made with C++
 
 ## Features
