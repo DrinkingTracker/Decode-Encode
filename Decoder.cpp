@@ -44,7 +44,7 @@ string Decoder::decodeHex(const string& input) {
 }
 
 string Decoder::decodeBase64(const string &in) {
-    string out;
+   string out;
     vector<int> T(256, -1);
     static const string b = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     
@@ -52,7 +52,14 @@ string Decoder::decodeBase64(const string &in) {
 
     int val = 0, valb = -8;
     for (unsigned char c : in) {
-        if (T[c] == -1) break;
+        // FIX START: Instead of breaking, reset state and continue
+        if (T[c] == -1) {
+            val = 0;      // Reset the bit buffer
+            valb = -8;    // Reset the bit count
+            continue;     // Skip this character (space or =) and go to the next
+        }
+        // FIX END
+        
         val = (val << 6) + T[c];
         valb += 6;
         if (valb >= 0) {
